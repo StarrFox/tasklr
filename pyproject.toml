@@ -9,6 +9,10 @@ repository = "https://github.com/StarrFox/tasklr"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+click = "^8.1.3"
+
+[tool.poetry.scripts]
+tasklr = "tasklr.cli:main"
 
 [tool.commitizen]
 name = "cz_conventional_commits"

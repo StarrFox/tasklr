@@ -17,6 +17,7 @@
 
         app = pkgs.poetry2nix.mkPoetryApplication {
           projectDir = ./.;
+          python = pkgs.python311;
           overrides =
             [ pkgs.poetry2nix.defaultPoetryOverrides customOverrides ];
         };
@@ -28,7 +29,7 @@
         defaultPackage = self.packages.${system}.${packageName};
 
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [poetry commitizen just];
+          buildInputs = with pkgs; [poetry commitizen just python311];
           inputsFrom = builtins.attrValues self.packages.${system};
         };
       });
